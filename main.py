@@ -122,7 +122,9 @@ class UAVDataPipeline:
             
             # 4. Animated Graph: Time Series of Roll over time
             fig1 = px.scatter(df_anim, x="timestamp", y="Roll", color="labels", 
-                              animation_frame="seq", range_y=[df_anim['Roll'].min(), df_anim['Roll'].max()],
+                              animation_frame="seq", 
+                              range_x=[df_anim['timestamp'].min(), df_anim['timestamp'].max()],
+                              range_y=[df_anim['Roll'].min(), df_anim['Roll'].max()],
                               title="Animated Roll Dynamics Over Time")
             fig1.write_html("outputs/animated_roll_timeseries.html")
             
